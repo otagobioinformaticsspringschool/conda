@@ -404,5 +404,11 @@ In order to use conda environments within your slurm script you need to source t
 1. create a new environment in `~/obss_2025/genomic_dna/env
 2. activate and then install into it the software that is found in the `modload.sh` we used.
     - Note that the names might be slightly different and you might need to google "<program> bioconda" to find out the actual package name
-3. make a copy of the variant calling script  
-4. 
+3. make a copy of the variant calling script (the original that works on the subset of data) 
+4. turn the copy in to a slum script by adding at the top
+   - `#!/bin/bash -e`
+   - the needed `SBATCH` lines (mem 4GB, cpus-per-task 2, account nesi02659, walltime 00:30:00)
+   - add the needed lines for loading your conda environment
+5. open terminal to the login node and navigate to where your script is and submit it into the scheduler
+6. take note of the job id
+7. check the status with `squeue --me`, and once finished look at `sacct -j <jobid>`, and efficiency `nn_seff -j <jobid>`
