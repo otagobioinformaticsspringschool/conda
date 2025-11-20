@@ -1,0 +1,1240 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.0">
+    
+    
+      
+        <title>Otago Bioinformatics Spring School 2025 - Conda</title>
+      
+    
+    
+      <link rel="stylesheet" href="assets/stylesheets/main.618322db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=wickliffe-sans:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"wickliffe-sans";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="assets/stylesheets/extra.css">
+    
+    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#condamamba" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="https://www.otago.ac.nz" title="Otago Bioinformatics Spring School 2025 - Conda" class="md-header__button md-logo" aria-label="Otago Bioinformatics Spring School 2025 - Conda" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Otago Bioinformatics Spring School 2025 - Conda
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Conda/Mamba
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="https://www.otago.ac.nz" title="Otago Bioinformatics Spring School 2025 - Conda" class="md-nav__button md-logo" aria-label="Otago Bioinformatics Spring School 2025 - Conda" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Otago Bioinformatics Spring School 2025 - Conda
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Conda/Mamba
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="." class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Conda/Mamba
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#what-is-conda" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What is Conda
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#using-miniforge-and-conda-on-the-reannz-hpc" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Using miniforge and conda on the REANNZ HPC
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Using miniforge and conda on the REANNZ HPC">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#installing-conda-on-your-pc" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Installing conda on your PC
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#module-loading-and-conda-environments-isolation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Module loading and conda environments isolation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configurations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Configurations
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Configurations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#prevent-conda-from-using-home-storage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prevent conda from using /home storage
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#self-installing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Self installing
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#extra-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Extra Configuration
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Extra Configuration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#bioconda" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Bioconda
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conda-environments" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Conda environments
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#creating-and-activating-an-environment" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Creating and activating an environment
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Creating and activating an environment">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#installing-conda-packages" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Installing conda packages
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cleaning-up" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cleaning up
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Cleaning up">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cleaning-cache" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cleaning Cache
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#migrating-an-existing-conda-environment" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Migrating an Existing Conda Environment
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#creating-an-alias-for-easy-activation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Creating an Alias for Easy Activation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Creating an Alias for Easy Activation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#removing-environments" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Removing environments
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#running-packages-from-your-conda-environment" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Running packages from your conda environment
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#installing-pip-packages" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Installing pip packages
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#using-conda-with-slurm" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Using conda with SLURM
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercise-redo-the-variant-calling" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercise - redo the variant calling
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#what-is-conda" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What is Conda
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#using-miniforge-and-conda-on-the-reannz-hpc" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Using miniforge and conda on the REANNZ HPC
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Using miniforge and conda on the REANNZ HPC">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#installing-conda-on-your-pc" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Installing conda on your PC
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#module-loading-and-conda-environments-isolation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Module loading and conda environments isolation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configurations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Configurations
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Configurations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#prevent-conda-from-using-home-storage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prevent conda from using /home storage
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#self-installing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Self installing
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#extra-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Extra Configuration
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Extra Configuration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#bioconda" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Bioconda
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conda-environments" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Conda environments
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#creating-and-activating-an-environment" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Creating and activating an environment
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Creating and activating an environment">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#installing-conda-packages" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Installing conda packages
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cleaning-up" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cleaning up
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Cleaning up">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cleaning-cache" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cleaning Cache
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#migrating-an-existing-conda-environment" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Migrating an Existing Conda Environment
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#creating-an-alias-for-easy-activation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Creating an Alias for Easy Activation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Creating an Alias for Easy Activation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#removing-environments" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Removing environments
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#running-packages-from-your-conda-environment" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Running packages from your conda environment
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#installing-pip-packages" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Installing pip packages
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#using-conda-with-slurm" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Using conda with SLURM
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercise-redo-the-variant-calling" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercise - redo the variant calling
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="condamamba">Conda/Mamba<a class="headerlink" href="#condamamba" title="Permanent link">¶</a></h1>
+<div class="admonition overview">
+<p class="admonition-title">On this Page</p>
+<ul>
+<li>About Conda and alternatives</li>
+<li>How to install Conda</li>
+<li>How to do additional configurations</li>
+<li>What are Conda Environments</li>
+</ul>
+</div>
+<!-- TODO See if overview is in line with content -->
+
+<h2 id="what-is-conda">What is Conda<a class="headerlink" href="#what-is-conda" title="Permanent link">¶</a></h2>
+<p>Conda is a cross‑platform package, dependency and environment manager that makes it easy to install binary packages (both Python and non‑Python) into isolated environments. By encapsulating exact package versions and their dependencies in a named or prefix environment, and by exporting an environment specification (for example with conda env export &gt; environment.yml), you can recreate the same software stack on another machine or share it with collaborators. To enhance the reproducibility of your research, commit the environment.yml to version control, and recreate environments with conda env create -f environment.yml to ensure analyses remain reproducible over time.</p>
+<div class="admonition note">
+<p class="admonition-title">Mamba</p>
+<p>Mamba is a drop in replacement for conda which has a faster package and dependency resolver.</p>
+</div>
+<p>The <code>Miniforge3</code> environment module provides the
+<a href="https://docs.conda.io/projects/conda/en/latest/">Conda</a> package and
+environment manager. Conda lets you install packages and their
+dependencies in dedicated environment, giving you more freedom to
+install software yourself at the expense of possibly less optimized
+packages and no curation by the REANNZ team.</p>
+<p>Documentation about using miniforge on REANNZ is found at <a href="https://docs.nesi.org.nz/Scientific_Computing/Supported_Applications/Miniforge3/">https://docs.nesi.org.nz/Scientific_Computing/Supported_Applications/Miniforge3/</a></p>
+<h2 id="using-miniforge-and-conda-on-the-reannz-hpc">Using miniforge and conda on the REANNZ HPC<a class="headerlink" href="#using-miniforge-and-conda-on-the-reannz-hpc" title="Permanent link">¶</a></h2>
+<p>Using miniforge on the HPC differs slightly from using it on your local computer in that miniforge itself is loaded using the <code>module</code> commands, and has some extra configurations to change some default behaviours due to the way the REANNZ HPC is set up - namely to avoid many default locations being your home directory, and instead to use project storage locations.</p>
+<h3 id="installing-conda-on-your-pc">Installing conda on your PC<a class="headerlink" href="#installing-conda-on-your-pc" title="Permanent link">¶</a></h3>
+<p>The miniforge installer nad instructions are found at <a href="https://conda-forge.org/download/">https://conda-forge.org/download/</a></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Some bioinformatic software requires an UNIX shell to run - which involves additional steps such as installing WSL2 in Windows.</p>
+</div>
+<h3 id="module-loading-and-conda-environments-isolation">Module loading and conda environments isolation<a class="headerlink" href="#module-loading-and-conda-environments-isolation" title="Permanent link">¶</a></h3>
+<p>When using the Miniforge3 module, we recommend using the following
+snippet to ensure that your conda environments can be activated and are
+isolated as possible from the rest of the system:</p>
+<div class="highlight"><pre><span></span><code>module<span class="w"> </span>purge<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>module<span class="w"> </span>load<span class="w"> </span>Miniforge3
+<span class="nb">source</span><span class="w"> </span><span class="k">$(</span>conda<span class="w"> </span>info<span class="w"> </span>--base<span class="k">)</span>/etc/profile.d/conda.sh
+<span class="nb">export</span><span class="w"> </span><span class="nv">PYTHONNOUSERSITE</span><span class="o">=</span><span class="m">1</span>
+</code></pre></div>
+<p>Here are the explanations for each line of this snippet:</p>
+<ul>
+<li><code>module purge &amp;&amp; module load Miniforge3</code> ensures that no other
+    environment module can affect your conda environments. In
+    particular, the Python environment module change the <code>PYTHONPATH</code>
+    variable, breaking the isolation of the conda environments. If you
+    need other environment modules, make sure to load them after this
+    line.</li>
+<li><code>source $(conda info --base)/etc/profile.d/conda.sh</code> ensures that
+    you can use the <code>conda activate</code> command.</li>
+<li><code>export PYTHONNOUSERSITE=1</code> makes sure that local packages installed
+    in your home folder <code>~/.local/lib/pythonX.Y/site-packages/</code> (where
+    <code>X.Y</code> is the Python version, e.g. 3.8) by <code>pip install --user</code> are
+    excluded from your conda environments.</li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>We <strong>strongly</strong> recommend against using <code>conda init</code>. It inserts a
+ snippet in your <code>~/.bashrc</code> file that will freeze the version of conda
+ used, bypassing the environment module system.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Defaults Channel</p>
+<p>If you are using a <code>environment.yml</code> file, you will have to remove the
+ <code>defaults</code> channel, or you will receive an error.</p>
+<div class="highlight"><pre><span></span><code>Failed to create Conda environment
+The channel is not accessible or is invalid.
+</code></pre></div>
+<p>The <code>defaults</code> channel is blocked due to Anaconda's licensing requirements.</p>
+</div>
+<h3 id="configurations">Configurations<a class="headerlink" href="#configurations" title="Permanent link">¶</a></h3>
+<h4 id="prevent-conda-from-using-home-storage">Prevent conda from using /home storage<a class="headerlink" href="#prevent-conda-from-using-home-storage" title="Permanent link">¶</a></h4>
+<p>Conda environments and the conda packages cache can take a lot of
+storage space. By default, Conda uses your home directory (<code>~/</code>),
+which is restricted to 20GB on the REANNZ HPC. Here are some techniques to avoid
+running out of space when using Conda.</p>
+<p>First, we recommend that you move the cache folder used for downloaded
+packages on the <code>nobackup</code> folder of your project:</p>
+<div class="highlight"><pre><span></span><code>conda<span class="w"> </span>config<span class="w"> </span>--add<span class="w"> </span>pkgs_dirs<span class="w"> </span>/nesi/nobackup/&lt;project_code&gt;/<span class="nv">$USER</span>/conda_pkgs
+</code></pre></div>
+<p>where <code>&lt;project_code&gt;</code> should be replace with your project code. This
+setting is saved in your <code>~/.condarc</code> configuration file.</p>
+<div class="admonition prerequisite note">
+<p class="admonition-title">Prerequisite</p>
+<p>Your package cache will be subject to the nobackup autodelete process
+ (details available in the <a href="https://docs.nesi.org.nz/Storage/File_Systems_and_Quotas/Automatic_cleaning_of_nobackup_file_system/">Nobackup autodelete</a>
+ support page). The package cache folder is for temporary storage so it
+ is safe if files within the cache folder are removed.</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Reduce prompt prefix</p>
+<p>By default, when activating a conda environment created with <code>-p</code> or
+ <code>--prefix</code>, the entire path of the environment is be added to the
+ prompt. To remove this long prefix in your shell prompt, use the
+ following configuration:
+ </p><div class="highlight"><pre><span></span><code>conda<span class="w"> </span>config<span class="w"> </span>--set<span class="w"> </span>env_prompt<span class="w"> </span><span class="s1">'({name})'</span>
+</code></pre></div>
+</div>
+<hr>
+<p>Loading miniforge</p>
+<ul>
+<li>REANNZ docs</li>
+<li>setup config</li>
+<li>create environment</li>
+<li>activate environment</li>
+<li>install into environment</li>
+<li>save requirements</li>
+<li>load environment</li>
+<li>
+</ul>
+<h4 id="self-installing">Self installing<a class="headerlink" href="#self-installing" title="Permanent link">¶</a></h4>
+<p>If you would prefer to install and manage your own version of conda you can do so, we recommend using <em><a href="https://conda-forge.org/miniforge">Miniforge</a></em> to manage conda environments and packages.
+Miniforge is a community-led, minimal conda/mamba installer that uses <em><a href="https://conda-forge.org/">conda-forge</a></em> as the default channel.</p>
+<p>To install Miniforge under your user account, you can use the following commands:</p>
+<div class="admonition terminal">
+<p class="admonition-title">Terminal</p>
+<div class="highlight"><pre><span></span><code>wget<span class="w"> </span>https://github.com/conda-forge/miniforge/releases/latest/download/Miniforge3-Linux-x86_64.sh
+bash<span class="w"> </span>Miniforge3-Linux-x86_64.sh<span class="w"> </span>-b<span class="w"> </span>-u
+</code></pre></div>
+</div>
+<p>Once installed (the default location is <code>/home/&lt;user&gt;/miniforge3</code>), load conda using:</p>
+<div class="admonition terminal">
+<p class="admonition-title">Terminal</p>
+<div class="highlight"><pre><span></span><code><span class="nb">source</span><span class="w"> </span>~/miniforge3/etc/profile.d/conda.sh
+</code></pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Installing miniforge and loading as above will also give you access to <code>mamba</code> which is a drop in faster replacement to <code>conda</code>.</p>
+</div>
+<h3 id="extra-configuration">Extra Configuration<a class="headerlink" href="#extra-configuration" title="Permanent link">¶</a></h3>
+<h4 id="bioconda">Bioconda<a class="headerlink" href="#bioconda" title="Permanent link">¶</a></h4>
+<p>Bioconda (<a href="https://bioconda.github.io">https://bioconda.github.io</a>) is a popular repository for bioinformatic software. To be able to make use of the bioconda repository you must configure conda to know about it. The following commands are from <a href="https://bioconda.github.io/#usage">https://bioconda.github.io/#usage</a> and will configure conda to search and download from the bioconda repositiory when installing into enivronments.</p>
+<div class="admonition terminal">
+<p class="admonition-title">Terminal</p>
+<div class="highlight"><pre><span></span><code>conda<span class="w"> </span>config<span class="w"> </span>--add<span class="w"> </span>channels<span class="w"> </span>bioconda
+conda<span class="w"> </span>config<span class="w"> </span>--add<span class="w"> </span>channels<span class="w"> </span>conda-forge
+conda<span class="w"> </span>config<span class="w"> </span>--set<span class="w"> </span>channel_priority<span class="w"> </span>strict
+</code></pre></div>
+</div>
+<p>These commands modify your <code>~/.condarc</code> file.</p>
+<h2 id="conda-environments">Conda environments<a class="headerlink" href="#conda-environments" title="Permanent link">¶</a></h2>
+<p>Conda environments let you manage software (and it's dependencies). Ultimately, conda install software into specific directories and then alters your <code>PATH</code> for you to make them accessible. To utilise an environment it must first exist, and then be activated. </p>
+<p>There are two types of environments: <em>named</em> and <em>prefix</em>. </p>
+<ul>
+<li>
+<p><em>Named</em> environments are installed within your home directory (subdirectories within <code>~/.conda/envs</code>) and will let you activiate by <code>conda activate &lt;environment_name&gt;</code>.</p>
+</li>
+<li>
+<p><em>Prefix</em> environments are installed into the location you specify at creation. If this location is accessible by others, they too can use the environment. For reproducibility it is useful to create an environment in a project directory and use that for operating on data there. When you change to a different project, you can activate the corresponding environment. This lets you manage your software at the project level.</p>
+</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>As named environments are stored in your home directory these can take up a large portion of your home directory storage quota. They are also not accessible to others.</p>
+<p>The use of <em>prefix</em> environments is encouraged as you can specify the location to store these (ideally in your project directory)</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>We strongly recommend against using <code>conda init</code>. It inserts a snippet in your <code>~/.bashrc</code> file that will freeze the version of conda used, bypassing the environment module system.</p>
+</div>
+<h2 id="creating-and-activating-an-environment">Creating and activating an environment<a class="headerlink" href="#creating-and-activating-an-environment" title="Permanent link">¶</a></h2>
+<div class="admonition information">
+<p class="admonition-title">Managing Conda Environments to Conserve Home Directory Storage</p>
+<p>To save home directory storage space, it is recommended to create Conda environments in a shared project directory. 
+This approach allows you to manage your Conda environments within your project directory and if needed share them with collaborators.</p>
+</div>
+<p>Lets create an environment to practice with</p>
+<div class="admonition terminal">
+<p class="admonition-title">Creating Conda Environments</p>
+<p>Using the prefix method (REANNZ preferred method)</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># ensure we have a driectory</span>
+mkdir<span class="w"> </span>-p<span class="w"> </span>~/obss_2025/conda_envs/
+
+conda<span class="w"> </span>create<span class="w"> </span>-p<span class="w"> </span>~/obss_2025/conda_envs/bioTools
+</code></pre></div>
+</div>
+<p>It will show the proposed installation location, and once you answer the prompt to proceed, will do the installation.  If you have followed these instruction, this location should be <code>/home/users/&lt;your_username&gt;/obss/conda_envs/bioTools</code>. </p>
+<p>Once you have created your environment, you can activate it using <code>conda activate &lt;path&gt;</code> for example:</p>
+<div class="admonition terminal">
+<p class="admonition-title">Terminal</p>
+<pre><code>```bash
+conda activate ~/obss_2025/conda_envs/bioTools
+```
+</code></pre>
+</div>
+<p>The command prompt will then change (e.g. to start with "(myenv) ") to reflect this.  Typing conda deactivate once will return you to the base environment; typing it a second time will deactivate conda completely (as above).
+ | To List your conda environments type the following:</p>
+<div class="admonition terminal">
+<p class="admonition-title">Terminal</p>
+<div class="highlight"><pre><span></span><code>conda<span class="w"> </span>env<span class="w"> </span>list
+</code></pre></div>
+</div>
+<h4 id="installing-conda-packages">Installing conda packages<a class="headerlink" href="#installing-conda-packages" title="Permanent link">¶</a></h4>
+<p>Once you have activated an environment, you can install packages with the conda install command, for example:</p>
+<div class="admonition terminal">
+<p class="admonition-title">Terminal</p>
+<div class="highlight"><pre><span></span><code>conda<span class="w"> </span>install<span class="w"> </span>gcc
+</code></pre></div>
+</div>
+<p>You can also force particular versions to be installed.  See the conda cheat sheet for details.</p>
+<p>To list the packages installed in the currently activated environment, you can type conda list.</p>
+<h4 id="cleaning-up">Cleaning up<a class="headerlink" href="#cleaning-up" title="Permanent link">¶</a></h4>
+<h5 id="cleaning-cache">Cleaning Cache<a class="headerlink" href="#cleaning-cache" title="Permanent link">¶</a></h5>
+<p>Once you've made your environments it can be a good idea to clean up your cache </p>
+<div class="admonition terminal">
+<p class="admonition-title">Terminal</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># remove index cache, lock files, unused cache packages, tarballs, and logfiles</span>
+conda<span class="w"> </span>clean<span class="w"> </span>--all
+</code></pre></div>
+</div>
+<h4 id="migrating-an-existing-conda-environment">Migrating an Existing Conda Environment<a class="headerlink" href="#migrating-an-existing-conda-environment" title="Permanent link">¶</a></h4>
+<p>To move an existing Conda environment to a new location:</p>
+<ol>
+<li>
+<p>Export your current environment to a YAML file:</p>
+<div class="admonition terminal">
+<p class="admonition-title">Terminal</p>
+<div class="highlight"><pre><span></span><code>conda<span class="w"> </span>env<span class="w"> </span><span class="nb">export</span><span class="w"> </span>--name<span class="w"> </span>existing_env<span class="w"> </span>&gt;<span class="w"> </span>environment.yml
+</code></pre></div>
+</div>
+</li>
+<li>
+<p>Create a new environment from the exported YAML file at your chosen location:</p>
+<div class="admonition terminal">
+<p class="admonition-title">Terminal</p>
+<div class="highlight"><pre><span></span><code>conda<span class="w"> </span>env<span class="w"> </span>create<span class="w"> </span>--prefix<span class="w"> </span>/path/to/project_directory/env/conda_envs/myenv<span class="w"> </span>--file<span class="w"> </span>environment.yml
+</code></pre></div>
+</div>
+</li>
+<li>
+<p>Activate the newly created environment:</p>
+<div class="admonition terminal">
+<p class="admonition-title">Terminal</p>
+<div class="highlight"><pre><span></span><code>conda<span class="w"> </span>activate<span class="w"> </span>/path/to/project_directory/env/conda_envs/myenv
+</code></pre></div>
+</div>
+</li>
+</ol>
+<h4 id="creating-an-alias-for-easy-activation">Creating an Alias for Easy Activation<a class="headerlink" href="#creating-an-alias-for-easy-activation" title="Permanent link">¶</a></h4>
+<p>To simplify environment activation, consider adding an alias to your shell configuration file (e.g., <code>.bashrc</code> or <code>.bash_profile</code>):</p>
+<div class="admonition terminal">
+<p class="admonition-title">Terminal</p>
+<div class="highlight"><pre><span></span><code><span class="nb">alias</span><span class="w"> </span><span class="nv">activate_myenv</span><span class="o">=</span><span class="s2">"conda activate /path/to/project_directory/env"</span>
+</code></pre></div>
+</div>
+<p>Activate your environment using the alias:</p>
+<div class="admonition terminal">
+<p class="admonition-title">Terminal</p>
+<div class="highlight"><pre><span></span><code>activate_myenv
+</code></pre></div>
+</div>
+<p>This method is Python-version agnostic and provides a convenient way to manage Conda environments in shared or collaborative project directories.</p>
+<h5 id="removing-environments">Removing environments<a class="headerlink" href="#removing-environments" title="Permanent link">¶</a></h5>
+<p>If you no longer need an environment the easiest way to remove it is:</p>
+<div class="admonition terminal">
+<p class="admonition-title">Terminal</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked id="__tabbed_1_1" name="__tabbed_1" type="radio"><input id="__tabbed_1_2" name="__tabbed_1" type="radio"><div class="tabbed-labels"><label for="__tabbed_1_1">Prefix</label><label for="__tabbed_1_2">Named</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code>conda<span class="w"> </span>env<span class="w"> </span>remove<span class="w"> </span>-p<span class="w"> </span>/path/to/env
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code>conda<span class="w"> </span>env<span class="w"> </span>remove<span class="w"> </span>-n<span class="w"> </span>env_name
+</code></pre></div>
+</div>
+</div>
+</div>
+</div>
+<h4 id="running-packages-from-your-conda-environment">Running packages from your conda environment<a class="headerlink" href="#running-packages-from-your-conda-environment" title="Permanent link">¶</a></h4>
+<p>In order to run packages from a conda environment that you installed previously, you will first need to activate the environment in the session that you are using.  This means repeating some of the commands typed above.  Of course, you will not need to repeat the steps to create the environment or install the software, but the following may be needed again:</p>
+<div class="admonition terminal">
+<p class="admonition-title">Terminal</p>
+<div class="highlight"><pre><span></span><code>conda<span class="w"> </span>deactivate
+
+conda<span class="w"> </span>activate<span class="w"> </span>myenv
+</code></pre></div>
+</div>
+<h4 id="installing-pip-packages">Installing pip packages<a class="headerlink" href="#installing-pip-packages" title="Permanent link">¶</a></h4>
+<p>Many python packages that are available via PyPI are also available as conda packages in conda-forge, and it is generally best to use these via "conda install" as above.</p>
+<p>Nonetheless, you can also install pip packages (as opposed to conda packages) into your conda environment.  However, first you should type:</p>
+<div class="admonition terminal">
+<p class="admonition-title">Terminal</p>
+<div class="highlight"><pre><span></span><code>conda<span class="w"> </span>install<span class="w"> </span>pip
+</code></pre></div>
+</div>
+<p>before typing the desired commands such as</p>
+<div class="admonition terminal">
+<p class="admonition-title">Terminal</p>
+<div class="highlight"><pre><span></span><code>pip<span class="w"> </span>install<span class="w"> </span>numpy
+</code></pre></div>
+</div>
+<p>If you do not install pip into your sub-environment, then either:</p>
+<p>your shell will fail to find the pip executable, or
+your shell will find pip in your base environment, which will lead to pip packages being installed into the base environment, resulting in potential interference between your conda environments
+Explicitly installing pip into your sub-environment will guard against this.    </p>
+<h2 id="using-conda-with-slurm">Using conda with SLURM<a class="headerlink" href="#using-conda-with-slurm" title="Permanent link">¶</a></h2>
+<p>In order to use conda environments within your slurm script you need to source the conda profile script so that the conda paths get set.</p>
+<div class="admonition terminal">
+<p class="admonition-title">Terminal</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:1"><input checked id="__tabbed_2_1" name="__tabbed_2" type="radio"><div class="tabbed-labels"><label for="__tabbed_2_1">Modules</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="c1">#SBATCH lines go here</span>
+
+module<span class="w"> </span>purge<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>module<span class="w"> </span>load<span class="w"> </span>Miniforge3
+<span class="nb">source</span><span class="w"> </span><span class="k">$(</span>conda<span class="w"> </span>info<span class="w"> </span>--base<span class="k">)</span>/etc/profile.d/conda.sh
+<span class="nb">export</span><span class="w"> </span><span class="nv">PYTHONNOUSERSITE</span><span class="o">=</span><span class="m">1</span>
+
+conda<span class="w"> </span>activate<span class="w"> </span>/path/to/env/
+
+<span class="c1"># code/programs to run go here</span>
+</code></pre></div>
+</div>
+</div>
+</div>
+</div>
+<h2 id="exercise-redo-the-variant-calling">Exercise - redo the variant calling<a class="headerlink" href="#exercise-redo-the-variant-calling" title="Permanent link">¶</a></h2>
+<ol>
+<li>create a new environment in `~/obss_2025/genomic_dna/env</li>
+<li>activate and then install into it the software that is found in the <code>modload.sh</code> we used.<ul>
+<li>Note that the names might be slightly different and you might need to google "<program> bioconda" to find out the actual package name</program></li>
+</ul>
+</li>
+<li>make a copy of the variant calling script (the original that works on the subset of data) </li>
+<li>turn the copy in to a slum script by adding at the top</li>
+<li><code>#!/bin/bash -e</code></li>
+<li>the needed <code>SBATCH</code> lines (mem 4GB, cpus-per-task 2, account nesi02659, walltime 00:30:00)</li>
+<li>add the needed lines for loading your conda environment</li>
+<li>open terminal to the login node and navigate to where your script is and submit it into the scheduler</li>
+<li>take note of the job id</li>
+<li>check the status with <code>squeue --me</code>, and once finished look at <code>sacct -j &lt;jobid&gt;</code>, and efficiency <code>nn_seff -j &lt;jobid&gt;</code></li>
+</ol>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": ".", "features": ["navigation.instant", "navigation.tracking", "navigation.sections", "navigation.path", "navigation.indexes", "toc.follow"], "search": "assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="assets/javascripts/bundle.e71a0d61.min.js"></script>
+      
+    
+  </body>
+</html>
