@@ -1,0 +1,58 @@
+site_name: Otago Bioinformatics Spring School 2025 - Conda
+theme : 
+  name: material
+  custom_dir: overrides
+  #logo: "assets/images/UoO_Logo_RGB_Horz_Gold-REV.svg"
+  #favicon: "assets/images/uoo-favicon-32x32.png"
+  font: 
+    text: 'wickliffe-sans'
+    code: 'Roboto Mono'
+  features:
+    - navigation.instant
+    - navigation.tracking
+    - navigation.sections
+#    - navigation.expand # auto expands all sections
+    - navigation.path
+    - navigation.indexes
+    - toc.follow
+
+
+
+plugins:
+  - search
+  - awesome-nav
+  - macros
+  - include-markdown
+  - table-reader
+  - caption:
+      table:
+        enable: true
+        caption_prefix: ''
+        allow_indented_caption: false
+        position: top
+
+extra_css:
+  - assets/stylesheets/extra.css
+
+markdown_extensions: 
+  - attr_list
+  - admonition
+  - tables
+  - footnotes
+  - toc:
+      permalink: true
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - md_in_html
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tabbed:
+      alternate_style: true
+
+extra:
+  homepage: "https://www.otago.ac.nz"
+  repo_url: "https://github.com/rtis-docs/uoo-mkdocs-template"

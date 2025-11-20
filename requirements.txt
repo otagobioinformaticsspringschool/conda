@@ -1,0 +1,11 @@
+
+mkdocs
+mkdocs-awesome-nav
+mkdocs-caption
+mkdocs-get-deps
+mkdocs-macros-plugin
+mkdocs-material
+mkdocs-material-extensions
+mkdocs-table-reader-plugin
+mkdocs-include-markdown-plugin
+neoteroi-mkdocs
